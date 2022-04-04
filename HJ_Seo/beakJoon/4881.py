@@ -41,7 +41,6 @@ absum += len(alist) + len(blist) + min( cycle_dist , 8 - cycle_dist )
 print('bb',absum)
 '''
 
- #잠깐 보류..
 #endcycle 정의. 각각의 숫자 리스트가 서로 다른 사이클에 있는 숫자를 포함하고 있을 경우 print(0)하고 pass.
 cycle1 = [4,16,37,58,89,145,42,20]
 cycle2 = [1]
