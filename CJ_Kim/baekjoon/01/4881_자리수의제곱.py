@@ -32,7 +32,7 @@ def existSameNum(list01, list02):
         if i in list02:
             minNum = list01.index(i) + list02.index(i) +2
     for j in list02:
-        if j in list01 and minNum>list01.index(j) + list02.index(j)+2:
+        if j in list01 and minNum > list01.index(j) + list02.index(j)+2:
             minNum = list01.index(j) + list02.index(j) +2
 
     return minNum
