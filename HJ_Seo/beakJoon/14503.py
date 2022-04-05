@@ -32,7 +32,7 @@ d가 0인 경우에는 북쪽을, 1인 경우에는 동쪽을, 2인 경우에는
 N, M = map(int,input().strip().split())
 
 row,col,dir = map(int,input().strip().split())
-on = [row,col] #예제 1을 통해 이 역시 0으로 시작하는 위치는 벽인 것을 짐작..
+on = [row,col] # [남북,동서] ##예제 1을 통해 이 역시 0으로 시작하는 위치는 벽인 것을 짐작.. 
 
 floor = [[] for i in range(N)]   # NxM 바닥을 만들기 위한 토대.
 for i in range(N):
@@ -41,26 +41,26 @@ for i in range(N):
 # for i in range(N):
 #     print(floor[i]) #바닥 체크.. done.
 
-
- #반쯤 수도코드.  [1,1]에서의 방향.... 차례대로 [1,0],[2,1],[1,2],
-# 0,2일때 0, 1일때 -1, 3일때 1..  ==> -abs(x-1)+1  (동서 움직임.)
-# 0일때 -1, 1,3일때 0, 2일때 1..  ==> -abs(x-2)+1  (남북 움직임.)
+#북서남동이 차례대로 0,3,2,1.
+ #반쯤 수도코드.  [1,1]에서의 방향.... 차례대로 [1,0],[2,1],[1,2],[0,1]
+# 0일때 -1, 3일때 0, 2일때 1, 1일때 0..  ==> -abs(x-2)+1  (동서 움직임.)
+# 0일때 0, 3일때 1, 2일때 0, 1일때 -1..  ==> +abs(x-1)-1  (남북 움직임.)
 #
 def changehandler(on,dir,floor):  #on은 현재 위치, dir은 청소기가 바라보는 방향, floor는 바닥. ; 청소기의 다음 방향과 위치를 제어해주는 함수
     # print('시작방향 = ',dir)
     for i in range(4):
-        check_on =[on[0]-abs(dir-1)+1,on[1]-abs(dir-2)+1]  #dir에 따른 탐색할 곳 살펴보기.(항상 방향기준 왼쪽.)
+        check_on =[on[0]+abs(dir-1)-1,on[1]-abs(dir-2)+1]  #dir에 따른 탐색할 곳 살펴보기.(항상 방향기준 왼쪽.)
         # print('check_on = ',check_on)
         if floor[check_on[0]][check_on[1]] != 0:  #이미 청소가 되었거나(2) 벽으로 막힌경우(1) 왼쪽회전만.
-            dir = (dir+1)%4
+            dir = (dir+3)%4
             # print('dir = ',dir)
         
         else:
-            return check_on, (dir+1)%4 #청소가 안된곳이면(0) 청소기가 움직인 위치와 방향을 리턴.
+            return check_on, (dir+3)%4 #청소가 안된곳이면(0) 청소기가 움직인 위치와 방향을 리턴.
     
     # 동서남북이 다 청소되었거나 막혔을 때 리턴할 위치,방향,False.
-    left = (dir+1)%4
-    back_on = [on[0]-abs(left-1)+1,on[1]-abs(left-2)+1] #후진.  !!!!!!!!!!!!!!!예제 1에 따르면 처음은 [2,1]이 되야하는데 [0,1]이 되어버림..
+    left = (dir+3)%4
+    back_on = [on[0]+abs(left-1)-1,on[1]-abs(left-2)+1] #후진.
 
     return back_on, dir
 
