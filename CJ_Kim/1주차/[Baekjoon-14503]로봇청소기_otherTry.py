@@ -1,5 +1,5 @@
 # 다른 점은 입력받은 변수들을 map 함수로 감싼 것
-# 근소하게 시간을 줄여서 흥미롭다
+# 근소하게 시간을 줄여서 흥미롭다(72ms->68ms)
 # count 함수를 따로 뺀 것은 시간 차이 없음
 row, col = map(int, input().split())
 currentR, currentC, currentD = map(int, input().split())
