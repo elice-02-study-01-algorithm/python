@@ -20,6 +20,7 @@ def isSame(arr1, arr2) :
       
   return False
 
+# case3: 사이클 안에서 최소 루트 구하는 함수
 def minRoute(num1, num2) :
   route1 = abs(cycle.index(num1) - cycle.index(num2))
   route2 = len(cycle) - max(cycle.index(num1), cycle.index(num2)) + min(cycle.index(num1), cycle.index(num2))
@@ -60,7 +61,7 @@ while True :
   elif isSame(sum1, sum2) :
     print(A, B, isSame(sum1, sum2))
 
-  # case3 : 둘 다 사이클에 있을 경우 차이를 더해줌
+  # case3 : 둘 다 사이클에 있을 경우 차이의 최솟값을 구해 더해줌
   elif sum1[-1] in cycle and sum2[-1] in cycle :
     chayi = minRoute(sum1[-1], sum2[-1])
     print(A, B, len(sum1) + len(sum2) + chayi)
