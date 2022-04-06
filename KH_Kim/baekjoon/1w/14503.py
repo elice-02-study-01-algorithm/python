@@ -7,74 +7,112 @@
 ##* d:바라보는방향 | (0:북쪽), (1:동쪽), (2:남쪽), (3:서쪽)
 ##* 빈칸:0, 벽:1, 지도의 가장자리 칸은 모두 벽
 
-# d = [0, 1, 2, 3]
-# 왼쪽회전후 d값 : (n+4-1)%4
-def spin(d):
-    new_d= (d+4-1) % 4
-    return new_d
 
-# d에 따른 이동할 위치
-def changeD(r,c,d):
-    if d == 0:
-        rm = r
-        cm = c - 1
-        return rm, cm
-    elif d == 3:
-        r += 1
-        return r, c
-    elif d == 2:
-        c += 1
-        return r, c
+
+def clean(row, col):
+    space[row][col] = 2  #! 1로 바꿀시 case2 20뜸
+    global cleanCount
+    cleanCount += 1
+    return
+
+# d = [0, 1, 2, 3] | [북, 동, 남, 서]
+# 방법 2)) 왼쪽회전후 d값 : (n+4-1)%4
+def turnLeft(direction):
+    global d  # d값 갱신
+    global turnCount
+    if direction== 0:
+        d = 3
+    elif direction == 1:
+        d = 0
+    elif direction == 2:
+        d = 1
+    elif direction == 3:
+        d = 2
+    turnCount += 1
+    return
+
+def isLeftDirty(row, col, direction):
+    if direction== 0:
+        if space[row][col-1] == 0:
+            return True
+    elif direction == 1:
+        if space[row-1][col] == 0:
+            return True
+    elif direction == 2:
+        if space[row][col+1] == 0:
+            return True
+    elif direction == 3:
+        if space[row+1][col] == 0:
+            return True
     else:
-        r -= 1
-        return r, c
+        return False
+            
+def goStraight(row, col, direction):
+    global r
+    global c
+    global turnCount
+    if direction == 0:
+        r = row - 1
+    elif direction == 1:
+        c = col + 1
+    elif direction == 2:
+        r = row + 1
+    elif direction == 3:
+        c = col - 1
+    turnCount = 0
+    return
 
-def robotmove(r,c,d,floor):
-    count = 0 # 청소한 칸 갯수
-    spin_count = 0
-    while spin_count <4:
-        nowpos = floor[r][c] # 현재 위치
-        # clean
-        print('one', count)
-        if nowpos == 0:
-            floor[r][c] = 1  # 1.clean
-            #! nowpos = 1 ??? call by ??
-            count +=1
-            print('two',count)
-        rm, cm = changeD(r, c, d)
-        print('rm,cm: ',rm, cm)
+def isBackEmpty(row, col, direction):
+    if direction == 0:
+        if space[row+1][col] != 1:
+            return True
+    elif direction == 1:
+        if space[row][col-1] != 1:
+            return True
+    elif direction == 2:
+        if space[row-1][col] != 1:
+            return True
+    elif direction == 3:
+        if space[row][col+1] != 1:
+            return True
+    else:
+        return False
+    
+def goBack(row, col, direction):
+    global r
+    global c
+    global turnCount
+    if direction == 0:
+        r = row + 1
+    elif direction == 1:
+        c = col - 1
+    elif direction == 2:
+        r = row - 1
+    elif direction == 3:
+        c = col + 1
+    turnCount = 0
+    return
 
-        # 현 위치 왼쪽에 0인경우 회전 후 전진
-        # 1인경우 회전 -> 왼쪽이 0인지 파악 후 반복
-        
-        if floor[rm][cm] == 0:
-            r = rm
-            c = cm
-            d = spin(d)
-            spin_count = 0
-        elif spin_count < 3:
-            d = spin(d)
-            spin_count += 1
-        else:
-            spin_count += 1
-            pass
-        print('r,c::',r,c)
-        print('d:',d)
-        print('spincount:',spin_count)
-    return count
-
-#! case1 통과
-#! case2 count = 20??
 
 if __name__ == '__main__':
-    N, M = map(int,input().strip().split())
-    r,c,d = map(int,input().strip().split())
+    N, M = map(int, input().split())       # 세로, 가로
+    r, c, d = map(int, input().split())     # r행 c열, d방향
+    space = [list(map(int, input().split())) for _ in range(N)]
+    turnCount = 0       # 한 자리에서 왼쪽으로 방향을 바꾼 횟수
+    cleanCount = 0      # 청소한 위치 개수
 
-    floor = [[] for i in range(N)]   
-    for i in range(N):
-        floor[i] = list(map(int,input().strip().split()))  
-
-
-    print(robotmove(r,c,d,floor))
-    # print(floor[1])
-    # print(floor[1][1])
+    clean(r,c) # 시작 세팅
+    while True:
+        if isLeftDirty(r,c,d):  # 왼쪽 0일시 True
+            turnLeft(d)         # d 갱신
+            goStraight(r,c,d)   # 갱신된 d에 맞춰서 이동
+            clean(r,c)          # loop
+        else:                   # 왼쪽 0 False
+            turnLeft(d)    
+            if turnCount == 4:
+                if isBackEmpty(r,c,d):  # 벽이 아닐경우 True
+                    goBack(r,c,d)
+                else:
+                    break
+                    
+    print(cleanCount)
