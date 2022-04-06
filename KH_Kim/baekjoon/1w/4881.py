@@ -1,73 +1,44 @@
 # 백준
 # 4881번 : 자리수의 제곱
-import sys
 
 ##* 89, 1
 ##* 0< a,b < 10^9
 
-# 1.숫자 제곱 합 함수
-def square_fun(number):
-    str_num = list(number)  # map -> list
-    # print(str_num[0][0])  # 첫째 자리
-    # print(str_num[0])    # 넘버
-    # print(str_num)  # 리스트
-    sum_next = 0
-    # breakPoint = True
-    while str_num.count(str_num[-1]) < 2:
-        # if str_num.count(str_num[-1]) <2:
-            # breakPoint = False
-            # break
-        for i in str_num[-1]:
-            temp_num = int(i) * int(i)
-            sum_next += temp_num
-        str_num.append(str(sum_next))
-    # print(str_num)   # 제곱합한 숫자 리스트에 추가, 루프 리스트 리턴
-    return str_num
+#자리수의 제곱을 리스트로 만들기
+def makeSquareSum(num):
+    numList = [num]   #! [num] 을 list(num)로 하면 에러뜸
+    #리스트에 같은 수가 나올 때까지 제곱해서 더하기
+    while numList.count(numList[-1]) < 2:  # count() 함수
+        calNum = numList[-1]
+        newNum = 0
+        #숫자를 string으로 변환하여 각 자리에 접근 가능하도록 만들기
+        for i in str(calNum):
+            newNum += int(i) * int(i)
+        numList.append(newNum)
+    return numList
 
 
-# 수열 길이
-def count_list_fun(list_l):
-    # temp = list_l.split(',')
-    # length = len(temp)
-    length = len(list_l)
-    return length
+#같은 수가 있는지 확인하기
+def existSameNum(list01, list02):
+    # 각 배열별로 단일 for문을 돌리고, 조건문으로 검색
+    minNum = 0
+    for i in list01:
+        if i in list02:
+            minNum = list01.index(i) + list02.index(i) + 2
+    for j in list02:
+        if j in list01 and minNum > list01.index(j) + list02.index(j)+2:
+            minNum = list01.index(j) + list02.index(j) + 2
+
+    return minNum
 
 
-# 재귀
-def loop_fun(list_n):
-    list_length = 0
-    # loop_escape = False
+if __name__ == "__main__":
+
     while True:
-
-        added_next = square_fun(list_n)
-        # for i in added_next:
-        #     if i == added_next[-1]:
-        #         list_length = count_list_fun(added_next)
-        #         loop_escape = True
-        #         break
-        # if loop_escape == True:
-        #     break
-        if added_next[-1] in list_n:
-            list_length = count_list_fun(added_next)
+        a, b = map(int, input().split())
+        if a == 0 and b == 0:                               # 둘다 0 이면 종료
             break
-
-    return list_length
-
-def compare_fun(A, B):
-    pass
-
-
-##! 0 0 입력일경우 종료
-if __name__ == '__main__':
-    # while True:
-    #     a, b = map(str, sys.stdin.readline().split())  # str
-    #     if a == 0 and b == 0:
-    #         break
-    #     else:
-    #         A_list = func(a)  # 제곱합 루프
-    #         B_list = func(b)  # 
-    #         print(a, b, output(A_list, B_list))
-    a = map(str, sys.stdin.readline().split())  # str
-    A_list = square_fun(a)
-    print(A_list)
-
+        else:
+            numListA = makeSquareSum(a)
+            numListB = makeSquareSum(b)
+            print(a, b, existSameNum(numListA, numListB))   # 출력 ex) 89 89 2
