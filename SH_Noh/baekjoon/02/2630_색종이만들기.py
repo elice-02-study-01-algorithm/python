@@ -24,26 +24,20 @@ def cutting(N, papers): # 색종이 자르기
     if isCompleted(papers): # 완성형 색종이이면
         if papers[0][0] == '0':
             white += 1
+            return
         else:
             blue += 1
+            return
 
-    else:
-        mid = N // 2
-        # 각 조각들을 []로 묶어 왼>오 순서대로 pieces에 추가
-        pieces.append([papers[i][:mid] for i in range(mid)])
-        pieces.append([papers[i][mid:] for i in range(mid)])
-        pieces.append([papers[mid+i][:mid] for i in range(mid)])
-        pieces.append([papers[mid+i][mid:] for i in range(mid)])
-        
-        for j in range(4): # 항상 네 조각으로 나뉨
-            # print(f'pieces[{j}]: {pieces[j]}')
-            if isCompleted(pieces[j]): # 다 같은 색이면
-                if pieces[j][0][0] == '0': # 색종이가 모두 흰색이면
-                    white += 1
-                else: # 파란색이면
-                    blue += 1
-            else: # 섞여있으면
-                cutting(mid, pieces[j])
+    mid = N // 2
+    # 각 조각들을 []로 묶어 왼>오 순서대로 pieces에 추가
+    pieces.append([papers[i][:mid] for i in range(mid)])
+    pieces.append([papers[i][mid:] for i in range(mid)])
+    pieces.append([papers[mid+i][:mid] for i in range(mid)])
+    pieces.append([papers[mid+i][mid:] for i in range(mid)])
+    
+    for j in range(4): # 항상 네 조각으로 나뉨
+        cutting(mid, pieces[j])
 
 cutting(N, papers)
 print(white)
