@@ -12,21 +12,17 @@ isVisited[r][c] = True # 현재 위치 방문
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
-def turnLeft(): # 왼쪽으로 회전하는 함수
-    global d
-    # 0 : 북, 1 : 동, 2 : 남, 3 : 서
-    d = d - 1 if d - 1 >= 0 else 3 # 음수면 3으로 초기화
-
 cleaned = 1 # 현재 위치 항상 청소하고 시작
 turnTime = 0 # 왼쪽으로 회전한 횟수
 
 while True:
-    turnLeft() # 왼쪽으로 회전하고
-    nx = r + dx[d] # 현재 방향으로 이동
-    ny = c + dy[d] # 현재 방향으로 이동
+    # 0 : 북, 1 : 동, 2 : 남, 3 : 서
+    d = (d - 1) % 4 # 왼쪽으로 회전
+    nx = r + dx[d] # 회전한 방향으로 이동
+    ny = c + dy[d] # 회전한 방향으로 이동
     
     if isVisited[nx][ny] == 0 and coordinate[nx][ny] == 0: # 이동을 했는데 방문하지 않았고 빈 공간인 경우
-        isVisited[nx][ny] = 1 # 방문 처리
+        isVisited[nx][ny] = True # 방문 처리
         cleaned += 1 # 청소 횟수 증가
         turnTime = 0 # 왼쪽 방향 회전 횟수 0으로 초기화
         r = nx # 위치 이동
