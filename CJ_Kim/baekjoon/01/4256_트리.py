@@ -1,7 +1,11 @@
 testCaseNum = int(input())
+# 후위순회를 담을 결과값
 global answer
 answer = []
+
+# list가 [None, [8, 4], ...] 이런 식으로 담아지는 경우가 있어 풀어주는 함수
 def makeList(list):
+    print(list)
     answerList = []
     for i in list:
         if i==None:
@@ -12,7 +16,7 @@ def makeList(list):
             answerList.append(i)
     return answerList
 
-
+# 후위순회
 def postOrder(preOrder, inOrder):
     global answer
     if len(preOrder)==0:
@@ -27,9 +31,10 @@ def postOrder(preOrder, inOrder):
     tempPreOrder = preOrder[1:(len(tempInOrder)+1)]
 
     left = postOrder(tempPreOrder, tempInOrder)
+    # append의 위치가 아래로 가면 답이 달라짐
     answer.append(left)
     right = postOrder(preOrder[len(tempInOrder)+1:], inOrder[inOrder.index(pivot)+1:])
-
+    
     answer.append(right)
     answer.append(pivot)
 
