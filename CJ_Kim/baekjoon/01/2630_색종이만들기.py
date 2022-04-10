@@ -99,4 +99,4 @@ def countPaper(paperMap, paperSize):
 # countPaper는 전체 색종이 갯수를 도출함
 result = countPaper(paperMap, paperSize)
 print(result-oneCount)
-print(oneCount)
+print(oneCount) 
