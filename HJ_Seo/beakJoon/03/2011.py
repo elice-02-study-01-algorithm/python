@@ -3,38 +3,50 @@
 n = '', '0 ~~~'
 'k0' in n where k>2
 
+n의 길이가 n[1:]을 상속받는 경우..
+1. 3~9 + n[:1]
 
+n의 길이가 n[2:]을 상속받는 경우..
+--> 10 or 20 +n[2:]
+
+n의 길이가 n[1:]+n[2:]와 같은 경우.
+n[1]이 0이 아닐 때 
 '''
 
-n = input()
+n = list(input())
+lst = [0,1]
+if len(n) == 0 or n[0] == '0':
+    print(0)
+    exit()
 
-def checker(n):
-    if n=='':
-        return 0
-    elif n.startswith('10') or n.startswith('20'):
-        return 1
-    elif len(n)==1:
-        if n[0] == '0':
-            return 0
-        elif n[0] != '0':
-            return 1
+for i in range(len(n)-1,-1,-1):
+    if n[i] == '0':
+        if n[i-1] not in ['1','2']:
+            print(0)
+            exit()
+        else:
+            lst.append(lst[-1])
+    elif n[i] in ['3','4','5','6','7','8','9','10']:
+        lst.append(lst[-1])
+    elif n[i] == '1':
+        if n[i+1] != '0':     #처음 시작할 때는 어떻게 처리를 하면 좋을까?
+                lst.append(lst[-1]+lst[-2])
+        else:
+            lst.append(lst[-1])
+    elif n[i] == '2' and i != len(n)-1:
+        if n[i+1] in ['1','2','3','4','5','6']:
+            lst.append(lst[-1]+lst[-2])
+    else:
+        lst.append(lst[-1])
+    
+    print(lst[-1])
 
-    # for i in ['30','40','50','60','70','80','90','00']:
-    #     if i in n:
-    #         return 0 #바로 아래가 함의할 수 있음.
-
-    for i in range(3,10):
-        if n.startswith(str(i)):
-            return checker(n[1:])
-
-    for i in ['1','2']:
-        if n.startswith(i):
-            return checker(n[1:]) + checker(n[2:])
-
-print(checker(n))
+print(lst[-1]%1000000)
+# 14%... 똑같은 곳에서 틀림.... 2의 문제가 아니라 다른 문제가 있는 것인데... 뭐일까..?...
 
 
-# 1111111111 --> 89 ???
+# 1111111111 --> 89
+# 11111111110 --> 55
 # 25114 --> 6
 # n 바로 뒤에 1 혹은 2가 붙는 경우.
 # 점화식으로 하는 것은 상당히 난해... 12340169 이런 것이 있을 가능성이 있고,
