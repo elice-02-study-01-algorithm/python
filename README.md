@@ -52,7 +52,7 @@
 | 주차 | 엘리스 강의 | 공통 문제 | 참여자 명단 |
 |:------|:--------:|:-----------:|:------------|
 |0주차|||`김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익`|
-|1주차| 분할 정복, 재귀 호출 |[자리수의 제곱](https://www.acmicpc.net/problem/4881), [로봇 청소기](https://www.acmicpc.net/problem/14503), [색종이 만들기](https://www.acmicpc.net/problem/2630), [트리](https://www.acmicpc.net/problem/4256) |`김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익`|
+|1주차| 분할 정복, 재귀 호출 |[자리수의 제곱](https://www.acmicpc.net/problem/4881), [로봇 청소기](https://www.acmicpc.net/problem/14503), [색종이 만들기](https://www.acmicpc.net/problem/2630), [트리](https://www.acmicpc.net/problem/4256) |`김관호`, `김채정`, `노송희`, `서형준`, `최재익`|
 |2주차|동적계획법|[젠장](https://www.acmicpc.net/problem/1324)|`김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익`|
 
 
