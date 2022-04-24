@@ -161,7 +161,7 @@ second_dif = -inf
 # Thus, 판별할 것들은 길이가 5 이상인 최소 하나의 숫자가 다른 케이스들.
 
 if min_idx < max_idx:
-    min 혹은 max가 무시되어야 하는 케이스는..? (X) 
+    min 혹은 max가 무시되어야 하는 케이스는..? min: (1),(2),(3)에 각각 숫자가 없는 케이스에서 발생. 
     worse case: 98 0 7 4 99 10 --> 7-0 + 99-4
     gen : min((1))>min(lst)
 

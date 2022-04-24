@@ -13,6 +13,8 @@ for i in range(3,8):
 
 return -1
 
+# 8번 하나 틀리는데 이유를 알 수가 없음.
+
 """
 
 def solution(N,number):

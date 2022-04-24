@@ -1,3 +1,5 @@
+#삼각형? done.
+
 def solution(triangle):
     for i in range(1,len(triangle)):
         for j in range(len(triangle[i])):

@@ -4,11 +4,13 @@
 import functools, itertools, random, math, time
 import numpy as np #pandas, matplotlib 안깔림 
 
-lst = [[0]] + [[] for _ in range(3)]
-lst[1].append(5)
+print({1,2,3} & {2,3,4})
+print({1,2} & {3,4})
+print({1,2,3} == {1,2,3})
+a = {1,2,3}
+b = {1,2,3}
 
-print(lst)
-
+print(a == b)
 
 # a = []
 # lst = [3,4,5,6,3,4]
