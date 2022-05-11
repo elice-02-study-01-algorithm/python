@@ -5,8 +5,16 @@ import functools, itertools, random, math, time
 import numpy as np #pandas, matplotlib 안깔림 
 
 # 17366.
+from math import sqrt
 
-a = np.array([1,2])
-b = np.array([0,1])
+A,B = map(int,input().strip().split())
 
-print(np.dot(a,b))
+result = 0
+
+for i in range(1,A+1):
+    for j in range(1,B+1):
+        if sqrt(i*j)%1 == 0:
+            print(i,j)
+            result += 1
+
+print(result)
