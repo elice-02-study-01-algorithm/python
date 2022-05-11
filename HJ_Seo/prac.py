@@ -5,3 +5,8 @@ import functools, itertools, random, math, time
 import numpy as np #pandas, matplotlib 안깔림 
 
 # 17366.
+
+a = np.array([1,2])
+b = np.array([0,1])
+
+print(np.dot(a,b))
