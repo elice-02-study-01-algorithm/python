@@ -127,3 +127,4 @@ print(result)
 #             j+=1
     
 # print(cnt)
+# ! DP와 cnt의 결합. 참신하다.

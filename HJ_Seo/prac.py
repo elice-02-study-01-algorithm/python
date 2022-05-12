@@ -6,8 +6,18 @@ import numpy as np #pandas, matplotlib 안깔림
 
 # 17366.
 
-x = [1,2,3,4,5]
+# 1654.
+from sys import stdin
 
-x/2
+K,N = map(int,input().strip().split())
+lines = []
+for _ in range(K):
+    lines.append(int(stdin.readline().strip()))
+    
+print(lines)
 
-print(x)
+maxi = 1
+
+# dlines = [i//maxi for i in lines]
+# sum(dlines) >= K
+# max(maxi) = ?
