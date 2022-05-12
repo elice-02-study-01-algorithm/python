@@ -1,13 +1,3 @@
-# 실험성 코드 페이지입니다. 백준이나 프로그래머스, 앨리스 문제 풀이 파일이 아녜요! - HJ -
-#한글문서는 오픈 안됨.
-
-import functools, itertools, random, math, time
-import numpy as np #pandas, matplotlib 안깔림 
-
-# 17366.
-
-
-
 # P P AP- --> P (P)PAP AP or P P(P)AP AP or P PPA(P) AP 
  
 a = input()
@@ -37,7 +27,7 @@ else: #len(a) >= 4 case.
 
 
 while 'PPAP' in a:
-    a = a.replace('PPAP','P') #! 20%에서 긴게 있음..
+    a = a.replace('PPAP','P') #! 20%에서 긴게 있나..?
     print(a)
     
 if a != 'P':

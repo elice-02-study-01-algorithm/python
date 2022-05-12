@@ -110,3 +110,20 @@ for i in range(1,N+1):
     result += len(set(range(1,M1+1)) & temp2)
     
 print(result)
+
+# ! advanced code.. 공부해보자... 매우 깊게 생각해보자. 나머지를 바라보는 다른 관점.. 
+# import math
+# n,m=map(int,input().split())
+# if n>m:
+#     n,m = m,n   #? done.
+# l=[1]*(n+1)   #? DP.
+# cnt=0
+# for i in range(1,n+1):
+#     if l[i]:
+#         cnt+=int(math.sqrt(n//i))*int(math.sqrt(m//i))
+#         j=2
+#         while i*j*j<= n:
+#             l[i*j*j] = 0
+#             j+=1
+    
+# print(cnt)
