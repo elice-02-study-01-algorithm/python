@@ -7,17 +7,30 @@ import numpy as np #pandas, matplotlib 안깔림
 # 17366.
 
 # 1654.
-from sys import stdin
+# from sys import stdin
 
-K,N = map(int,input().strip().split())
-lines = []
-for _ in range(K):
-    lines.append(int(stdin.readline().strip()))
+# K,N = map(int,input().strip().split())
+# lines = []
+# for _ in range(K):
+#     lines.append(int(stdin.readline().strip()))
     
-print(lines)
+# print(lines)
 
-maxi = 1
+# maxi = 1
 
 # dlines = [i//maxi for i in lines]
 # sum(dlines) >= K
 # max(maxi) = ?
+
+N,K = map(int,input().strip().split())
+
+high = [i for i in range(N-K+1,N+1)]
+low = [i for i in range(1,K+1)]
+
+cal = 1
+for i in high:
+    cal *= i
+for j in low:
+    cal = cal//j
+    
+print(cal)
