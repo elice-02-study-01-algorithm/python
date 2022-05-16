@@ -22,15 +22,28 @@ import numpy as np #pandas, matplotlib 안깔림
 # sum(dlines) >= K
 # max(maxi) = ?
 
-N,K = map(int,input().strip().split())
 
-high = [i for i in range(N-K+1,N+1)]
-low = [i for i in range(1,K+1)]
+# from sys import stdin
+# from itertools import compress
 
-cal = 1
-for i in high:
-    cal *= i
-for j in low:
-    cal = cal//j
-    
-print(cal)
+# N,M = map(int,stdin.readline().strip().split())
+
+# lst = list(map(int,stdin.readline().strip().split()))
+# lst = list(compress(lst,map(lambda x: x<M,lst)))
+
+# result = -1
+
+# for i in range(N-2):
+#     for j in range(i+1,N-1):
+#         for k in range(j+1,N):
+#             if lst[i] + lst[j] + lst[k] <= M:
+#                 result = max(result,lst[i] + lst[j] + lst[k])
+                
+#                 if result == M:
+#                     print(M)
+#                     exit(0)
+
+# print(result)
+
+
+print(len(set([1,2,3]) & set([4,5,6])) == 0)
