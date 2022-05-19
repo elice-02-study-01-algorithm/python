@@ -46,4 +46,11 @@ import numpy as np #pandas, matplotlib 안깔림
 # print(result)
 
 
-print(len(set([1,2,3]) & set([4,5,6])) == 0)
+asd = {1:2,3:4}
+
+for i in asd:
+    print(i)
+
+print(asd)
+
+print([] is True)
