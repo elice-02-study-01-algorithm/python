@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-# ! 주석 달기
-
-=======
->>>>>>> 866d1b7b1b0e0f652295d77c98cb33b78a5deb91
 from sys import stdin
 
 n = int(stdin.readline().strip())
 a,b = list(map(int,stdin.readline().strip().split()))
 m = int(stdin.readline().strip())
-<<<<<<< HEAD
-
-=======
->>>>>>> 866d1b7b1b0e0f652295d77c98cb33b78a5deb91
 root_dict = {}
 
 for i in range(m):
@@ -21,20 +12,14 @@ for i in range(m):
     else:
         root_dict[par] = [chi]
 
-<<<<<<< HEAD
 # root_dict : 부모를 key로 가지는 directed forest 생성.
-=======
->>>>>>> 866d1b7b1b0e0f652295d77c98cb33b78a5deb91
 # print(root_dict)
 
 def search_met(a,b,root_dict):
     a_anc = [a]
     b_anc = [b]
-<<<<<<< HEAD
     # a와 b의 조상들을 나열할 리스트.. ex. a_anc[n] 은 a의 n세대 위, a_anc[-1], b_anc[-1] = 트리(들)의 root
     
-=======
->>>>>>> 866d1b7b1b0e0f652295d77c98cb33b78a5deb91
     
     while a_anc[-1] in sum(root_dict.values(),[]):
         for i in root_dict.keys():
@@ -47,12 +32,7 @@ def search_met(a,b,root_dict):
             if b_anc[-1] in root_dict[i]:
                 b_anc.append(i)
                 break
-<<<<<<< HEAD
     # while문의 조건이 성립할 수 있는 이유는 rooted 트리의 root가 어떤 vertex의 child가 되지 않기 때문.
-=======
-    
-    # print(a_anc,b_anc)
->>>>>>> 866d1b7b1b0e0f652295d77c98cb33b78a5deb91
 
     if len(set(a_anc) & set(b_anc)) == 0:
         return -1
@@ -60,13 +40,8 @@ def search_met(a,b,root_dict):
         for i in a_anc:
             if i in b_anc:
                 return a_anc.index(i) + b_anc.index(i)
-<<<<<<< HEAD
     # 판별기. 만약 a를 포함한 tree와 b를 포함한 트리가 다르다면 root 역시 다르기 때문에 set으로 겹치는 원소가 0, return -1.
     # 아닌 경우, a의 조상을 차례대로 올라감, 이때 i가 b의 조상이 된다면 a와 b의 가장 낮은 계층의 공통조상을 찾을 수 있고, index를 통해 촌수를 알 수 있게 됨.
     
 print(search_met(a,b,root_dict))
 
-=======
-    
-print(search_met(a,b,root_dict))
->>>>>>> 866d1b7b1b0e0f652295d77c98cb33b78a5deb91
