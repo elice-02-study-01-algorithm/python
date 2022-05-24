@@ -69,7 +69,7 @@
 | 2주차 |      동적계획법      |                               [젠장](https://www.acmicpc.net/problem/1324), [1로 만들기2](https://www.acmicpc.net/problem/12852), [암호코드](https://www.acmicpc.net/problem/2011)                               | `김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익` |
 | 3주차 |          큐          |                                                          [Router](https://www.acmicpc.net/problem/15828), [PPAP](https://www.acmicpc.net/problem/16120)                                                          | `김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익` |
 | 4주차 |        그래프        |                                [촌수계산](https://www.acmicpc.net/problem/2644), [아기 상어](https://www.acmicpc.net/problem/16236), [수열](https://www.acmicpc.net/problem/2491)                                | `김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익` |
-| 5주차 |     그래프 심화      |                                                                                  [지름길](https://www.acmicpc.net/problem/1446)                                                                                  | `김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익` |
+| 5주차 |     그래프 심화      |                                                         [지름길](https://www.acmicpc.net/problem/1446), [최단경로](https://www.acmicpc.net/problem/1753)                                                         | `김관호`, `김채정`, `노송희`, `서형준`, `안지우`, `최재익` |
 
 ## 🦮블로그 작성 가이드
 
