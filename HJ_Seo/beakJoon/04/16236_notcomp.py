@@ -11,7 +11,7 @@ def min_leng_target(field,location,sharklvl):
     field_leng = len(field)-1 #n = 6일 때 field_leng도 6, but list의 마지막은 5이므로.
     
     while True:
-        x = sum(field,[]) # ! min == 0...
+        x = sum(field,[]) # ! min == 0...   여기서 시간이 많이 잡아먹힐수도..?..
         while 0 in x:
             x.remove(0)
         # print(x)
@@ -23,24 +23,25 @@ def min_leng_target(field,location,sharklvl):
         temp = [] # 값 저장하기.
         for i in loc_dict[maxdirc]:
             for j in di:
-                if min(i[0]+j[0],i[1]+j[1]) < 0 or max(i[0]+j[0],i[1]+j[1]) > field_leng or field[i[0]+j[0]][i[1]+j[1]] > sharklvl or [i[0]+j[0],i[1]+j[1]] in sum(loc_dict.values(),[]):
+                loc_di = [i[0]+j[0],i[1]+j[1]]
+                if min(loc_di) < 0 or max(loc_di) > field_leng or field[loc_di[0]][loc_di[1]] > sharklvl or [loc_di[0],loc_di[1]] in sum(loc_dict.values(),[]):
                     # 1,2 : 맵을 벗어남., 3 : 위치에 존재한 먹이의 레벨이 상어레벨보다 높음., 4 : 이미 들른 위치.
                     continue
                 
                 # 위의 경우가 아니면 갈 수 있는 경우.
                 if maxdirc+1 not in loc_dict.keys(): 
                     loc_dict[maxdirc+1] = []
-                loc_dict[maxdirc+1].append([i[0]+j[0],i[1]+j[1]])
+                loc_dict[maxdirc+1].append(loc_di)
                 
-                if field[i[0]+j[0]][i[1]+j[1]] != 0 and field[i[0]+j[0]][i[1]+j[1]] < sharklvl: #먹이 발견.
-                    temp.append([i[0]+j[0],i[1]+j[1]])
+                if field[loc_di[0]][loc_di[1]] != 0 and field[loc_di[0]][loc_di[1]] < sharklvl: #먹이 발견.
+                    temp.append(loc_di)
                     
         if temp:
             temp = sorted(temp)
+            # print('nearest_eat =',temp)
             target = temp[0]
             leng = maxdirc + 1
-            # print('sharklvl =',sharklvl)
-            # print('temp, leng =',temp, leng)
+            # print('target_leng =',leng)
             break
 
     field[target[0]][target[1]] = 9 #타겟에 도착한 상황.
@@ -63,6 +64,7 @@ for i in range(n):
             break
 
 while True:  
+    # print('current loc =',location)
     isend,leng,field,location = min_leng_target(field,location,sharklvl)
     # print('return값 =', isend,leng,field,location)
     if isend:
@@ -74,7 +76,7 @@ while True:
     if eat_cnt == sharklvl:
         sharklvl += 1
         eat_cnt = 0
-
+    
 print(moveleng)
 
 # 아니 이건 왜 시간초과가 뜨냐??ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ

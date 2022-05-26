@@ -63,35 +63,10 @@ import numpy as np #pandas, matplotlib 안깔림
 # print(subsequence_list) 
 # [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
-from sys import stdin
 
-C,N = map(int,stdin.readline().strip().split())
 
-result_set = set()
-lst = []
-for i in range(N):
-    lst.append(list(map(int,stdin.readline().strip().split())))
+dict = {0:5,7:9,1:3}
 
-lst = sorted(lst,key = lambda x: -x[1]/x[0])
+d = sorted(dict)
 
-for i in lst:
-    if i[1] >= C:
-        result_set.add(i[0])
-
-cal_dict = {}
-for i in lst:
-    cal_dict[i[1]] = i[0]
-
-while len(cal_dict) != 0:
-    temp_dict = {}
-    for i in cal_dict.items():
-        for j in lst:
-            if i[0]+j[1]>=C:
-                result_set.add(i[1]+j[0])
-            elif i[0]+j[1] in temp_dict.keys():
-                temp_dict[i[0]+j[1]] = min(temp_dict[i[0]+j[1]],i[1]+j[0])
-            else:
-                temp_dict[i[0]+j[1]] = i[1]+j[0]
-    cal_dict = temp_dict
-
-print(min(result_set))
+print(d)

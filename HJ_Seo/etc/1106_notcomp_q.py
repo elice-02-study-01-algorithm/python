@@ -19,8 +19,21 @@ for i in range(N-1):
 for i in list(del_set)[::-1]:
     del lst[i]
     
-print(lst)
+# print(lst)
+result = 0
+res_set = set()
 
+for i in range(len(lst)):
+    if lst[i][1]>= C:
+        res_set.add(lst[i][0])
+
+for i in range(len(lst)):
+    if lst[i][1] <= C:
+        x = C//lst[i][1]
+        
+        
+            
+            
 
 
 
