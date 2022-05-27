@@ -69,4 +69,7 @@ dict = {0:5,7:9,1:3}
 
 d = sorted(dict)
 
+dict.pop(0)
+
+print(dict)
 print(d)
