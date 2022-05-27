@@ -28,7 +28,6 @@ while len(G) != 0:
     
     G_keys = tuple(G.keys())
     for i in range(len(G_keys)):
-        print(dist[5])
         if dist[G_keys[i][0]] != inf:
             init = G_keys[i][0]
             des = G_keys[i][1]
