@@ -1,24 +1,25 @@
-from math import inf
-from sys import stdin, setrecursionlimit
+from sys import stdin, maxsize,setrecursionlimit
 
 setrecursionlimit(100000)
+
+# ! heapq 가 훨씬 빠름..
 
 v,e = map(int,stdin.readline().strip().split())
 stt = int(stdin.readline().strip())
 
-dist = [inf for _ in range(v+1)]
+dist = [maxsize for _ in range(v+1)]
 dist[stt] = 0
-visited = [False for _ in range(v+1)]
+# visited = [False for _ in range(v+1)]
 
 G = dict()
 for _ in range(e):
     a,b,c = map(int,stdin.readline().strip().split())
     
-    if dist[a] != inf:
+    if dist[a] != maxsize:
         dist[b] = min(dist[b],dist[a]+c)
 
     if (a,b) not in G:
-        G[(a,b)] = inf
+        G[(a,b)] = maxsize
     G[(a,b)] = min(G[(a,b)],c)
 
 n = 0
@@ -28,7 +29,7 @@ while len(G) != 0:
     
     G_keys = tuple(G.keys())
     for i in range(len(G_keys)):
-        if dist[G_keys[i][0]] != inf:
+        if dist[G_keys[i][0]] != maxsize:
             init = G_keys[i][0]
             des = G_keys[i][1]
             cost = G.pop(G_keys[i])
@@ -40,7 +41,7 @@ while len(G) != 0:
             n += 1
 
 for i in range(1,v+1):
-    if dist[i] == inf:
+    if dist[i] == maxsize:
         print('INF')
     else:
         print(dist[i])

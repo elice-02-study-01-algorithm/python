@@ -1,7 +1,7 @@
 # 실험성 코드 페이지입니다. 백준이나 프로그래머스, 앨리스 문제 풀이 파일이 아녜요! - HJ -
 #한글문서는 오픈 안됨.
 
-import functools, itertools, random, math, time, sys
+import functools, itertools, random, math, time, sys, re, collections
 import numpy as np #pandas, matplotlib 안깔림 
 
 # 17366.
@@ -64,12 +64,3 @@ import numpy as np #pandas, matplotlib 안깔림
 # [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
 
-
-dict = {0:5,7:9,1:3}
-
-d = sorted(dict)
-
-dict.pop(0)
-
-print(dict)
-print(d)
