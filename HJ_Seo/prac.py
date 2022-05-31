@@ -64,3 +64,63 @@ import numpy as np #pandas, matplotlib 안깔림
 # [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
 
+'''
+4 4
+79
+72
+70
+7
+WANTED: 7977270
+'''
+# x = [13/1,69/5,41/3,37/3,80/6]
+# --> div 1 5 3 3 6
+# print(x)
+# print(max(x),min(x))
+# print(4+2+2+5)
+
+# x = [7,11,13]
+# # --> div 3 5 5..
+
+# mini = min(x)
+# n = 1
+# # x = sorted(x)
+# result = math.inf
+# while True:
+#     temp = mini/n
+#     temp_lst = []
+#     for i in range(len(x)):
+#         temp_lst.append(round(x[i]/temp))
+#     print(temp_lst,sum(temp_lst))
+    
+#     temp_lst2 = [x[i]/temp_lst[i] for i in range(len(x))]
+#     print(temp_lst2)
+#     result = min(result,max(temp_lst2)-min(temp_lst2))
+#     n+=1
+#     if sum(temp_lst) > 10+3:
+#         break
+
+# print(result)
+
+
+n, lost, reserve = 5, [2, 4], [1, 3, 5]
+
+
+def solution(n, lost, reserve):
+    lost = sorted(lost)
+    reserve = sorted(reserve)
+    lost1 = lost.copy()
+    
+    for i in lost:
+        if i-1 in reserve:
+            reserve.remove(i-1)
+            lost1.remove(i)
+        elif i in reserve:
+            reserve.remove(i)
+            lost1.remove(i)
+        elif i+1 in reserve:
+            reserve.remove(i+1)
+            lost1.remove(i)
+        
+    return n - len(lost1)
+
+print(solution(n, lost, reserve))
