@@ -100,27 +100,3 @@ WANTED: 7977270
 #         break
 
 # print(result)
-
-
-n, lost, reserve = 5, [2, 4], [1, 3, 5]
-
-
-def solution(n, lost, reserve):
-    lost = sorted(lost)
-    reserve = sorted(reserve)
-    lost1 = lost.copy()
-    
-    for i in lost:
-        if i-1 in reserve:
-            reserve.remove(i-1)
-            lost1.remove(i)
-        elif i in reserve:
-            reserve.remove(i)
-            lost1.remove(i)
-        elif i+1 in reserve:
-            reserve.remove(i+1)
-            lost1.remove(i)
-        
-    return n - len(lost1)
-
-print(solution(n, lost, reserve))
