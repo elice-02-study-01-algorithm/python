@@ -100,3 +100,7 @@ WANTED: 7977270
 #         break
 
 # print(result)
+
+x = input()
+y = input()
+print(x.count(y))
