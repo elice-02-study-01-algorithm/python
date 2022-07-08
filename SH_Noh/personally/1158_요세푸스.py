@@ -10,6 +10,5 @@ while table:
     idx = (idx + K - 1) % len(table)
     Josephus.append(table.pop(idx))
 
-# Josephus = ', '.join(map(str, Josephus))
-# print(f'<{Josephus}>')
-print('<' + str(Josephus).strip("[]") + '>')
+# print('<' + str(Josephus).strip("[]") + '>')
+print('<' + ', '.join(map(str, Josephus)) + '>')
