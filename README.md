@@ -1,4 +1,4 @@
-# elice-02-study-01-algorithm
+# elice-02-study-01-algorithm 시즌 2🔥
 
 엘리스 AI 트랙 4기 코딩 테스트 스터디 레포지토리입니다.
 
