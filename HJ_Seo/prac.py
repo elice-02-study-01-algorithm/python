@@ -101,6 +101,149 @@ WANTED: 7977270
 
 # print(result)
 
-x = input()
-y = input()
-print(x.count(y))
+# from sys import stdin
+# N,M = map(int,stdin.readline().strip().split())
+# trees = tuple(map(int,stdin.readline().strip().split()))
+
+# if sum(trees) == M:
+#     print(0)
+#     exit(0)
+
+# cut_res = []
+# x = max(trees)
+    
+# temp = x//2
+# while temp != 0:
+#     cut_res = [0 for _ in range(N)]
+#     for i in range(N):
+#         if x<trees[i]:
+#             cut_res[i] = trees[i]-x
+    
+#     if sum(cut_res) == M:
+#         print(x)
+#         exit(0)
+    
+#     if sum(cut_res) > M:
+#         x += temp
+#     else:
+#         x -= temp
+#         temp = x//2
+    
+# print(x)
+
+# from sys import stdin
+    
+# x,y = map(int,stdin.readline().strip().split())
+
+# grape = {x:[]}
+# temp = []
+# for i in range(y-1):
+#     a,b = map(int,stdin.readline().strip().split())
+#     if a in grape:
+#         grape[a].append(b)
+#         grape[b] = []
+#     elif b in grape:
+#         grape[b].append(a)
+#         grape[a] = []
+#     else:
+#         temp.append((a,b))
+
+# while len(temp) != 0:
+#     for i in temp:
+#         if i[0] in grape:
+#             grape[i[0]].append(i[1])
+#             grape[i[1]] = []
+#         elif i[1] in grape:
+#             grape[i[1]].append(i[0])
+#             grape[i[0]] = []
+#         temp.remove(i)
+
+# rearr = []
+# while True:
+#     if len(grape) == 0:
+#         break
+    
+#     leaf = []
+#     for i in grape:
+#         if len(grape[i]) == 0:
+#             leaf.append(i)
+
+#     rearr.append(leaf)
+    
+#     for i in leaf:
+#         del grape[i]
+    
+#     for i in grape:
+#         grape[i] = [j for j in grape[i] if j not in leaf]
+
+# print(len(rearr))
+
+# for i in rearr:
+#     print(*sorted(i))
+    
+# =========================================================================
+
+# from sys import stdin
+
+# def main():
+#     x = int(input())
+#     lst = list(map(int,stdin.readline().strip().split()))
+
+#     sum_num = sum(lst)
+
+#     while len(lst) != 1:
+#         mini = float('inf')
+#         for i in range(len(lst)-1):
+#             mini = min(mini,lst[i]*lst[i+1])
+        
+#         for i in range(len(lst)-1):
+#             if lst[i]*lst[i+1] == mini:
+#                 lst = lst[:i] + [max(lst[i],lst[i+1])] + lst[i+2:]
+#                 sum_num += mini
+#                 break
+        
+#     print(sum_num)
+
+# if __name__=="__main__":
+#     main()
+    
+# =========================================================================
+
+# from itertools import combinations
+# from sys import stdin
+
+# def main():
+#     x = int(input())
+#     dots = [tuple(map(int,stdin.readline().strip().split())) for _ in range(x)]
+
+#     cnt = 0
+#     for i in combinations(dots,3):
+#         if (i[1][0]-i[0][0])*(i[2][1]-i[0][1]) != (i[2][0]-i[0][0])*(i[1][1]-i[0][1]):
+#             cnt += 1
+    
+#     print(cnt)
+
+# if __name__=="__main__":
+#     main()
+
+a = [4/3,9/4]
+b = [1.5,2.5]
+lst = [[1,4],[2,3],[0,1],[1,1]]
+sum1 = 0
+sum2 = 0
+sum3 = 0
+sum4 = 0
+sum5 = 0
+sum6 = 0
+for i in lst:
+    sum1 += max(abs(i[0]-a[0]),abs(i[1]-a[1]))
+    sum2 += max(abs(i[0]-b[0]),abs(i[1]-b[1]))
+    # sum3 += abs(i[0]-a[0])
+    # sum4 += abs(i[1]-a[1])
+    # sum5 += abs(i[0]-b[0])
+    # sum6 += abs(i[1]-b[1])
+    
+
+print(sum1,sum2)
+print(sum3,sum4)
+print(sum5,sum6)
