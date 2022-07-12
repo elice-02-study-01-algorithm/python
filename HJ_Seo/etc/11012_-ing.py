@@ -30,22 +30,40 @@ from sys import stdin
 def count_leng(lst,y1,y2):
     return len(tuple(filter(lambda x : x>=y1 and x<=y2,lst)))
 
-def create_seg_tree(x,y,start,end):
-    if x < start or end < x:
-        return    
+def count_dots(x1,x2,y1,y2,start,end):
+    if x2<start or end<x1:
+        return 0
+    elif x1 <= start and end <= x2:
+        return count_leng(1111111111111111111111,y1,y2) # start와 end로부터 index를 뽑는 방법은?
     else:
-        segtree[x].append(y)
-        create_seg_tree(2*x,y,start,(start+end)//2)
-        create_seg_tree(2*x+1,y,(start+end)//2+1,end)
-        return
-
+        return 1
 case = int(input())
 
 for _ in range(case):
-    segtree = [[]]*131072
+    coordinates = [[] for _ in range(65537)]
     n,m =map(int,stdin.readline().strip().split())
     
     for i in range(n):
-        
+        x,y = map(int,stdin.readline().strip().split())
+        coordinates[x].append(y)
+    print(coordinates[:10])
+    
+    segtree = [[] for _ in range(65537)] + coordinates
+    
+    x = 65536
+    # ! make_seg_tree는 coordinates가 다 들어간 이후 만들어야 한다!! (같이 만들게 된다면 메모리 누수가 굉장할듯..)
+    while x != 0:
+        segtree[x] = segtree[2*x+1] + segtree[2*x]
+        x -= 1
+
+
+    print(segtree[:30])
     
 
+'''
+1   
+3 1
+3 5
+2 3
+1 1
+'''
