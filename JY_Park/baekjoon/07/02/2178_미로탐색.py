@@ -1,5 +1,5 @@
-# import sys
-# input = sys.stdin.readline
+import sys
+input = sys.stdin.readline
 from collections import deque
 n, m = map(int,input().split())
 
@@ -8,7 +8,7 @@ dy = [0, -1, 0, 1]
 
 graph = []
 for _ in range(n):
-    graph.append(list(map(int, input())))
+    graph.append(list(map(int, input().strip())))
 
 # 다시 돌아올게.. dfs... bye..
 # def dfs(x,y):
