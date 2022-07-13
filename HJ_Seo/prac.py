@@ -226,24 +226,6 @@ WANTED: 7977270
 # if __name__=="__main__":
 #     main()
 
-a = [4/3,9/4]
-b = [1.5,2.5]
-lst = [[1,4],[2,3],[0,1],[1,1]]
-sum1 = 0
-sum2 = 0
-sum3 = 0
-sum4 = 0
-sum5 = 0
-sum6 = 0
-for i in lst:
-    sum1 += max(abs(i[0]-a[0]),abs(i[1]-a[1]))
-    sum2 += max(abs(i[0]-b[0]),abs(i[1]-b[1]))
-    # sum3 += abs(i[0]-a[0])
-    # sum4 += abs(i[1]-a[1])
-    # sum5 += abs(i[0]-b[0])
-    # sum6 += abs(i[1]-b[1])
-    
+print(len(tuple(filter(lambda x : x>=2 and x<=3,[]))))
 
-print(sum1,sum2)
-print(sum3,sum4)
-print(sum5,sum6)
+# print(tuple({1,4,6})[2])
