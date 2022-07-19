@@ -226,6 +226,6 @@ WANTED: 7977270
 # if __name__=="__main__":
 #     main()
 
-print(len(tuple(filter(lambda x : x>=2 and x<=3,[]))))
+# print(len(tuple(filter(lambda x : x>=2 and x<=3,[]))))
 
 # print(tuple({1,4,6})[2])
