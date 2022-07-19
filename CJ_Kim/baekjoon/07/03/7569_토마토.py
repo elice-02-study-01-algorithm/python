@@ -7,7 +7,11 @@ M, N, H = map(int, input().split())
 
 tomato_info = [[] for _ in range(H)]
 
-ripen_tomato = deque([])
+# deque() vs deque([]) 차이
+# deque() -> 50864KB 3360ms
+# deque([]) -> 50840KB 3240ms
+ripen_tomato = deque()
+
 
 # 토마토 지도와 익은 토마토 덱 세팅
 for h in range(H):
@@ -23,17 +27,24 @@ dn = [0, 1, 0, -1, 0, 0]
 dh = [0, 0, 0, 0, 1, -1]
 
 # 익은 토마토를 시작으로 BFS
-while ripen_tomato:
-    m, n, h = ripen_tomato.popleft()
+'''
+함수 처리 해보기
+'''
+def make_ripen():
 
-    for i in range(6):
-        newM, newN, newH = m+dm[i], n+dn[i], h+dh[i]
+    while ripen_tomato:
+        m, n, h = ripen_tomato.popleft()
 
-        # 범위 내에 토마토가 아직 안 익었으면 익히기(== 이전 위치의 토마토의 것에서 날짜 수 +1) 
-        if 0 <= newM < M and 0 <= newN < N and 0 <= newH < H:
-            if tomato_info[newH][newN][newM] == 0:
-                ripen_tomato.append([newM, newN, newH])
-                tomato_info[newH][newN][newM] = tomato_info[h][n][m] + 1
+        for i in range(6):
+            newM, newN, newH = m+dm[i], n+dn[i], h+dh[i]
+
+            # 범위 내에 토마토가 아직 안 익었으면 익히기(== 이전 위치의 토마토의 것에서 날짜 수 +1) 
+            if 0 <= newM < M and 0 <= newN < N and 0 <= newH < H:
+                if tomato_info[newH][newN][newM] == 0:
+                    ripen_tomato.append([newM, newN, newH])
+                    tomato_info[newH][newN][newM] = tomato_info[h][n][m] + 1
+
+make_ripen()
 
 day = 0
 for plate in tomato_info:
