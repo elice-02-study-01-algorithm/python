@@ -5,6 +5,7 @@ x = []
 
 n = int(input())
 
+# 큰 수를 뽑아내야하니 - 붙이기!
 while n != 0:
     do = stdin.readline().strip()
     

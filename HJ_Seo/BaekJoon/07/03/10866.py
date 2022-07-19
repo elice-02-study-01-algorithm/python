@@ -5,6 +5,7 @@ N = int(stdin.readline().strip())
 
 nums = deque()
 
+# 이전에 푼거.. 개선사항은 if else문 개선..?.. 예전꺼랑 비교해서 시간 차이는 없지만 메모리는 10kb정도? 줄더라..ㅎㅎ..
 for _ in range(N):
     arr = stdin.readline().strip()
     
