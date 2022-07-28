@@ -9,15 +9,10 @@ maxi = min(a.index('1'),b.index('1'))
 not_a = ''
 not_b = ''
 for i in range(100000):
-    if a[i] == b[i] and a[i] == '1':
-        op_and += '1'
-    else:
-        op_and += '0'
-        
-    if a[i] == '1' or b[i] == '1':
-        op_or += '1'
-    else:
-        op_or += '0'
+    op_and += '1' if a[i] == b[i] and a[i] == '1' else '0'
+    op_or += '1' if a[i] == '1' or b[i] == '1' else '0'
+    not_a += '0' if a[i] == '1' else '1'
+    not_b += '0' if b[i] == '1' else '1'
     
     if maxi>i:
         op_xor += '0'
@@ -26,16 +21,6 @@ for i in range(100000):
     else:
         op_xor += '0'
     
-    if a[i] == '1':
-        not_a += '0'
-    else:
-        not_a += '1'
-        
-    if b[i] == '1':
-        not_b += '0'
-    else:
-        not_b += '1'
-        
 print(op_and)
 print(op_or)
 print(op_xor)
