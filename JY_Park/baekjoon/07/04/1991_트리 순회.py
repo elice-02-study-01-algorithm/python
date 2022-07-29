@@ -1,13 +1,14 @@
 from sys import stdin
 input = stdin.readline
 
+# 트리를 구성 할 노드 클래스 생성
 class Node:
-  def __init__(self,data,left_node,right_node):
+  def __init__(self, data, left_node, right_node):
       self.data = data
       self.left_node = left_node
       self.right_node = right_node
 
-# 전위 순회, ABDCEFG // (루트) (왼쪽 자식) (오른쪽 자식)
+# 전위 순회, ABDCEFG // (루트) (왼쪽 자식) (오른쪽 자식) // 루트 노드 먼저 출력, 그 후 좌, 우 재귀
 def pre_order(node):
   print(node.data,end='')
   if node.left_node != None:
