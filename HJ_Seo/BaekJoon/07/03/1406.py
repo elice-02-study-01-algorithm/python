@@ -127,7 +127,7 @@ for _ in range(N):
     elif arr == 'D' and right:
         left.append(right.pop())
     elif arr =='B' and left:
-        del left[-1]
+        del left[-1] #left.pop()
     elif arr.startswith('P'):  # ! 여기서 왜 else가 들어가면 안되는걸까??..
         left.append(arr[2])
 
