@@ -230,33 +230,5 @@ WANTED: 7977270
 
 # print(tuple({1,4,6})[2])
 
-# ! qweqeqwrerrrrrrrrrrrrrrrrrrrrr
-# print(23 & 10)
-
-# print(bin(23),bin(10))
-
-# print(bin(0b1110 ^ (1 << 5)))  #  0b10
-# x = 23
-# for i in range(4):
-#     if 10 & (1<<i) and x & (1<<i) == 0:
-#             print(x & (1<<i))
-#             x += (1<<i)
-# print(x)
-# print(23 & 8)
-
-# print(1 | 6)
-# print(10 & 6)
-
-# print(11111111111, 0b00001^0b10001)
-
-# print(bin((1<<5)))
-
-# print(bin(~0b000100))
-# print(~0b0)
-# print(~0b100)
-
-# print((~0b1010)>>)
-print(bin(~0b1000))
-print(bin(0b0010 << 2))
-print((1<<4) + ~ 0b1000)
-print((1<<0))
+print('3'.isnumeric())
+print('123ewr234'.isnumeric())
