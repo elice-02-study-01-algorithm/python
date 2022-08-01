@@ -53,6 +53,7 @@ print(tree)
 query = int(input())
 
 def update(node, left, right, index, value):
+    # index에 있는 값이 범위 밖일 때 아무 액션하지 않기
     if right< index or index < left:
         return
     if left == right:
@@ -65,11 +66,13 @@ def update(node, left, right, index, value):
     smaller_node = node*2
     if tree[node*2][VALUE] > tree[node*2+1][VALUE]:
         smaller_node = node*2+1
+    # 각 레벨에 따른 범위 중 최솟값으로 배치하기
     tree[node] = [tree[smaller_node][VALUE], tree[smaller_node][INDEX]]
 
 for _ in range(query):
     order = list(map(int, input().split()))
     if order[0] == 1:
+        # 1번째 노트부터 탐색, 1~seqLen만큼의 구간을, order[1]에 있는 값을 order[2]으로 변경
         update(1, 1, seqLen, order[1], order[2])
     else:
         print(tree[1][INDEX])
