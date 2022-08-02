@@ -230,5 +230,32 @@ WANTED: 7977270
 
 # print(tuple({1,4,6})[2])
 
-print('3'.isnumeric())
-print('123ewr234'.isnumeric())
+n = input()
+
+checknum = 1
+while True:
+    n_change = ''
+    for i in n[:8]:
+        n_change += chr(ord(i) ^ checknum)
+    
+    if n_change == 'CHICKENS':
+        # print(checknum)
+        break
+    
+    checknum += 1
+    
+n_before = 'CHICKENS'
+for i in n[8:]:
+    n_before += chr(ord(i) ^ checknum)
+
+print(n_before)
+
+# for i in 'CHI':
+#     print(bin(ord(i)))
+#     print(bin(ord(i)^22))
+#     print('===')
+# print(bin(22))
+
+# ! 이게 왜 정답이야???...
+
+for x in input():print(end=chr(ord(x)^22))
