@@ -230,33 +230,32 @@ WANTED: 7977270
 
 # print(tuple({1,4,6})[2])
 
-# ! qweqeqwrerrrrrrrrrrrrrrrrrrrrr
-# print(23 & 10)
+n = input()
 
-# print(bin(23),bin(10))
+checknum = 1
+while True:
+    n_change = ''
+    for i in n[:8]:
+        n_change += chr(ord(i) ^ checknum)
+    
+    if n_change == 'CHICKENS':
+        # print(checknum)
+        break
+    
+    checknum += 1
+    
+n_before = 'CHICKENS'
+for i in n[8:]:
+    n_before += chr(ord(i) ^ checknum)
 
-# print(bin(0b1110 ^ (1 << 5)))  #  0b10
-# x = 23
-# for i in range(4):
-#     if 10 & (1<<i) and x & (1<<i) == 0:
-#             print(x & (1<<i))
-#             x += (1<<i)
-# print(x)
-# print(23 & 8)
+print(n_before)
 
-# print(1 | 6)
-# print(10 & 6)
+# for i in 'CHI':
+#     print(bin(ord(i)))
+#     print(bin(ord(i)^22))
+#     print('===')
+# print(bin(22))
 
-# print(11111111111, 0b00001^0b10001)
+# ! 이게 왜 정답이야???...
 
-# print(bin((1<<5)))
-
-# print(bin(~0b000100))
-# print(~0b0)
-# print(~0b100)
-
-# print((~0b1010)>>)
-print(bin(~0b1000))
-print(bin(0b0010 << 2))
-print((1<<4) + ~ 0b1000)
-print((1<<0))
+for x in input():print(end=chr(ord(x)^22))
