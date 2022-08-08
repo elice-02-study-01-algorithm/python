@@ -206,36 +206,8 @@ WANTED: 7977270
 
 # if __name__=="__main__":
 #     main()
-    
-# =========================================================================
 
-# from itertools import combinations
-# from sys import stdin
-
-# def main():
-#     x = int(input())
-#     dots = [tuple(map(int,stdin.readline().strip().split())) for _ in range(x)]
-
-#     cnt = 0
-#     for i in combinations(dots,3):
-#         if (i[1][0]-i[0][0])*(i[2][1]-i[0][1]) != (i[2][0]-i[0][0])*(i[1][1]-i[0][1]):
-#             cnt += 1
-    
-#     print(cnt)
-
-# if __name__=="__main__":
-#     main()
-
-# print(len(tuple(filter(lambda x : x>=2 and x<=3,[]))))
-
-# print(tuple({1,4,6})[2])
-
-print({1,2,5} & {1,2,3,4})
-
-print(chr(97),chr(122))
-
-for i in range(97,123):
-    print(chr(i),i)
-
-# 116,111,115
-print(chr(116).upper())
+'''
+[0, 1, 1, 4, 24, 240, 4320, 146880, 9694080, 260230393, 139440925, 672634953, 123456948, 86741629, 467193157]
+[0, 1, 2, 6, 30, 270, 4590, 151470, 9845550, 270075943, 409516868, 82151814, 205608762, 292350391, 759543548]
+'''
