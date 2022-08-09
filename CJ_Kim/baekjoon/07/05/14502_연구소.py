@@ -1,4 +1,5 @@
 from itertools import count
+import copy
 
 row, col = map(int, input().split())
 
@@ -21,17 +22,17 @@ dR = [0, 1, 0, -1]
 dC = [1, 0, -1, 0]
 
 def virusSpread(tempMap, virusList):
-    spreadCalMap = tempMap[:]
+    print('virus tempMap', tempMap)
     while virusList:
         virusR, virusC = virusList.pop(0)
         for i in range(4):
             newR, newC = virusR+dR[i], virusC + dC[i]
-
             if 0<= newR<row and 0<=newC<col:
-                if spreadCalMap[newR][newC] == 0:
+                print('virus', newR, newC, tempMap)
+                if tempMap[newR][newC] == 0:
                     virusList.append((newR, newC))
-                    spreadCalMap[newR][newC] = 2
-    return spreadCalMap 
+                    tempMap[newR][newC] = 2
+    return tempMap 
 
 def safeAreaCount(map):
     safeArea = 0
@@ -40,30 +41,28 @@ def safeAreaCount(map):
     return safeArea
 
 def makeWall(laboratoryMap):
-    tempMap = laboratoryMap[:]
+
+    tempMap = copy.deepcopy(laboratoryMap)
     maxSafeArea = 0
+
     for wall01 in range(len(possibleWallInfo)-2):
-        wall01R, wall01C = possibleWallInfo[wall01] 
+        wall01R, wall01C = possibleWallInfo[wall01]
+
         for wall02 in range(wall01+1, len(possibleWallInfo)-1):
             wall02R, wall02C = possibleWallInfo[wall02]
             for wall03 in range(wall02+1, len(possibleWallInfo)):
                 wall03R, wall03C = possibleWallInfo[wall03]
                 
-                print('before', tempMap)
                 tempMap[wall01R][wall01C] = 1
                 tempMap[wall02R][wall02C] = 1
                 tempMap[wall03R][wall03C] = 1
-                print('after',tempMap)
-                print(laboratoryMap)
                 spreadMap = virusSpread(tempMap, virusInfo)
-                print('spreadMap',spreadMap)
                 safeArea = safeAreaCount(spreadMap)
                 if maxSafeArea<safeArea:
+                    print(spreadMap)
+                    print(safeArea, (wall01R, wall01C), (wall02R, wall02C), (wall03R, wall03C))
                     maxSafeArea = safeArea
-                print('labMap', labMap)
-                tempMap = labMap
-            break
-        break
+                tempMap = copy.deepcopy(laboratoryMap)
     return maxSafeArea
 
 print(makeWall(labMap))
