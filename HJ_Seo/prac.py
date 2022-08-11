@@ -206,57 +206,17 @@ WANTED: 7977270
 
 # if __name__=="__main__":
 #     main()
-    
-# =========================================================================
 
-# from itertools import combinations
-# from sys import stdin
+'''
+[0, 1, 1, 4, 24, 240, 4320, 146880, 9694080, 260230393, 139440925, 672634953, 123456948, 86741629, 467193157]
+[0, 1, 2, 6, 30, 270, 4590, 151470, 9845550, 270075943, 409516868, 82151814, 205608762, 292350391, 759543548]
+'''
 
-# def main():
-#     x = int(input())
-#     dots = [tuple(map(int,stdin.readline().strip().split())) for _ in range(x)]
 
-#     cnt = 0
-#     for i in combinations(dots,3):
-#         if (i[1][0]-i[0][0])*(i[2][1]-i[0][1]) != (i[2][0]-i[0][0])*(i[1][1]-i[0][1]):
-#             cnt += 1
-    
-#     print(cnt)
+# print(44777444**(1/3)) # ~= 355.102
+# print(355.102**3) # max = 356.
 
-# if __name__=="__main__":
-#     main()
 
-# print(len(tuple(filter(lambda x : x>=2 and x<=3,[]))))
-
-# print(tuple({1,4,6})[2])
-
-# ! qweqeqwrerrrrrrrrrrrrrrrrrrrrr
-# print(23 & 10)
-
-# print(bin(23),bin(10))
-
-# print(bin(0b1110 ^ (1 << 5)))  #  0b10
-# x = 23
-# for i in range(4):
-#     if 10 & (1<<i) and x & (1<<i) == 0:
-#             print(x & (1<<i))
-#             x += (1<<i)
-# print(x)
-# print(23 & 8)
-
-# print(1 | 6)
-# print(10 & 6)
-
-# print(11111111111, 0b00001^0b10001)
-
-# print(bin((1<<5)))
-
-# print(bin(~0b000100))
-# print(~0b0)
-# print(~0b100)
-
-# print((~0b1010)>>)
-print(bin(~0b1000))
-print(bin(0b0010 << 2))
-print((1<<4) + ~ 0b1000)
-print((1<<0))
+val = [0]
+val.extend(map(int,input().strip().split()))
+print(val)
