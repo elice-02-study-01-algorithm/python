@@ -20,7 +20,7 @@ for i in range(t):
     # 입력된 arr 값이 '[]' 이외의 값인 경우
     else:
         # 문자열을 배열로 변환
-        arr = list(map(int, arr.replace('[','').replace(']','').split(",")))
+        arr = arr.replace('[','').replace(']','').split(",")
     # 방향에 대한 정보 저장 (1: 정방향, -1:역방향)
     reverse = 1
     # 트리거 선언
@@ -55,10 +55,10 @@ for i in range(t):
         # reverse가 1인 경우
         if reverse == 1:
             # 배열을 문자열로 변환
-            print('['+','.join(map(str, list(deq)))+']')
+            print('['+','.join(list(deq))+']')
         else:
             answer = list(deq)
             # 배열을 역순으로 정렬
             answer.reverse()
             # 배열을 문자열로 변환
-            print('['+','.join(map(str, answer))+']')
+            print('['+','.join(answer)+']')
