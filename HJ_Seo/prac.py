@@ -206,56 +206,17 @@ WANTED: 7977270
 
 # if __name__=="__main__":
 #     main()
-    
-# =========================================================================
 
-# from itertools import combinations
-# from sys import stdin
+'''
+[0, 1, 1, 4, 24, 240, 4320, 146880, 9694080, 260230393, 139440925, 672634953, 123456948, 86741629, 467193157]
+[0, 1, 2, 6, 30, 270, 4590, 151470, 9845550, 270075943, 409516868, 82151814, 205608762, 292350391, 759543548]
+'''
 
-# def main():
-#     x = int(input())
-#     dots = [tuple(map(int,stdin.readline().strip().split())) for _ in range(x)]
 
-#     cnt = 0
-#     for i in combinations(dots,3):
-#         if (i[1][0]-i[0][0])*(i[2][1]-i[0][1]) != (i[2][0]-i[0][0])*(i[1][1]-i[0][1]):
-#             cnt += 1
-    
-#     print(cnt)
+# print(44777444**(1/3)) # ~= 355.102
+# print(355.102**3) # max = 356.
 
-# if __name__=="__main__":
-#     main()
 
-# print(len(tuple(filter(lambda x : x>=2 and x<=3,[]))))
-
-# print(tuple({1,4,6})[2])
-
-n = input()
-
-checknum = 1
-while True:
-    n_change = ''
-    for i in n[:8]:
-        n_change += chr(ord(i) ^ checknum)
-    
-    if n_change == 'CHICKENS':
-        # print(checknum)
-        break
-    
-    checknum += 1
-    
-n_before = 'CHICKENS'
-for i in n[8:]:
-    n_before += chr(ord(i) ^ checknum)
-
-print(n_before)
-
-# for i in 'CHI':
-#     print(bin(ord(i)))
-#     print(bin(ord(i)^22))
-#     print('===')
-# print(bin(22))
-
-# ! 이게 왜 정답이야???...
-
-for x in input():print(end=chr(ord(x)^22))
+val = [0]
+val.extend(map(int,input().strip().split()))
+print(val)
