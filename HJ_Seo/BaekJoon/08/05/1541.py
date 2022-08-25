@@ -11,3 +11,4 @@ for i in range(len(f)):
     f[i] = num
 
 print(f[0]-sum(f[1:]))
+ 
