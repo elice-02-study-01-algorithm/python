@@ -19,3 +19,4 @@ for i in range(n+1):
     if r&(1<<i):a+=2*4**i
     if c&(1<<i):a+=4**i
 print(a)
+ 
