@@ -198,23 +198,23 @@ print(goods_weight_per_value[-1][-1])
 
 # ! 아래 코드는 효율적인 코드.
 
-import sys
-input = sys.stdin.readline
+# import sys
+# input = sys.stdin.readline
 
-def get_max_value_case(K):
-    dp = [0] * (K + 1)
-    for w, v in WV:
-        for i in range(K, -1, -1):
-            if i - w < 0:
-                break
-            dp[i] = max(v + dp[i - w], dp[i])
-    return dp[K]
+# def get_max_value_case(K):
+#     dp = [0] * (K + 1)
+#     for w, v in WV:
+#         for i in range(K, -1, -1):
+#             if i - w < 0:
+#                 break
+#             dp[i] = max(v + dp[i - w], dp[i])
+#     return dp[K]
 
-n, k = map(int, input().split())
-WV = [list(map(int, input().split())) for _ in range(n)]
-WV.sort()
+# n, k = map(int, input().split())
+# WV = [list(map(int, input().split())) for _ in range(n)]
+# WV.sort()
 
-print(get_max_value_case(k))
+# print(get_max_value_case(k))
 
 '''
 bad case : 
@@ -319,4 +319,4 @@ bad case :
 98 197
 99 199
 100 201
-'''
+''' 
