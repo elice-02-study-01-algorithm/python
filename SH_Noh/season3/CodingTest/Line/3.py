@@ -49,3 +49,7 @@ def solution(n: int, m: int, fires: List[List[int]], ices: List[List[int]]) -> L
         ices, answer = icing(ices, answer, n)
         print(answer)
     return answer
+    
+print(solution(3, 2, [[1, 1]], [[3, 3]]))
+# [[2, 2, 0], [2, 1, -1], [0, -1, -1]]
+print(solution(5, 3, [[5, 5], [1, 3], [5, 2]], [[1, 5], [3, 2]]))
